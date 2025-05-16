@@ -1,0 +1,54 @@
+header {
+  background-color: #f8f8f8;
+  padding: 15px 20px;
+  display: flex; /* Enable flexbox for horizontal layout */
+  justify-content: space-between; /* Space out logo and navigation */
+  align-items: center; /* Vertically align items in the header */
+  position: fixed; /* Keep the header at the top */
+  top: 0;
+  left: 0;
+  width: 100%; /* Make it span the entire width */
+  z-index: 100; /* Ensure it stays on top of other content */
+}
+
+.logo img {
+  height: 50px; /* Adjust as needed */
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex; /* Enable flexbox for horizontal menu items */
+  align-items: center; /* Vertically align menu items */
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li:first-child {
+  margin-left: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+main {
+  padding-top: 80px; /* Add padding to avoid content overlapping the fixed header (adjust as needed) */
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
