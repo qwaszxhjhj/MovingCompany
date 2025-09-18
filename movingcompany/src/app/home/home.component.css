@@ -1,91 +1,196 @@
+/* --- Global Styles & Reset --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+/* --- Reusable Section Title --- */
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 3rem;
+}
+
+/* --- Hero Section --- */
 .hero {
-  background-color: #f8f8f8;
-  padding: 40px;
+  background-color: #f8f9fa;
+  padding: 4rem 1.5rem;
   text-align: center;
 }
 
 .hero h1 {
   font-size: 2.5em;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
   color: #333;
 }
 
 .hero p {
   font-size: 1.1em;
   color: #666;
-  margin-bottom: 30px;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero .hero-qr-code {
+  width: 150px; /* Adjust size as needed */
+  height: 150px;
+  display: block; /* Allows margin auto to work for centering */
+  margin: 0 auto 1.5rem auto; /* Top, Right, Bottom, Left. Centers and adds space below */
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  padding: 4px;
 }
 
 .hero button {
   background-color: #007bff;
   color: white;
-  padding: 10px 20px;
+  padding: 12px 24px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 1em;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
 }
 
-.services {
-  padding: 30px;
-  text-align: center;
+.hero button:hover {
+    background-color: #0056b3;
 }
 
-.services h2 {
-  font-size: 2em;
-  margin-bottom: 20px;
+
+/* --- Services Grid Section --- */
+.services-section {
+  padding: 4rem 2rem;
+  background-color: #ffffff;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-card {
+  background-color: #f7f7f7;
+  padding: 2.5rem 2rem;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.service-card::before {
+  content: attr(data-number);
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  font-size: 6rem;
+  font-weight: 700;
+  color: #e9e9e9;
+  line-height: 1;
+  z-index: 1;
+}
+
+.service-card h2 {
+  position: relative;
+  z-index: 2;
+  font-size: 1.5rem;
   color: #333;
+  margin-bottom: 1rem;
 }
 
-.services ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+.service-card p {
+  position: relative;
+  z-index: 2;
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
 }
 
-.services ul li {
-  font-size: 1.1em;
-  color: #555;
+/* --- Moving Procedure Section --- */
+.procedure-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: #ffffff;
 }
 
+.lined-list {
+  list-style: decimal outside;
+  padding-left: 2rem;
+  font-size: 1rem;
+  line-height: 1.75;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.lined-list li {
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+}
+
+/* --- Contact Brief Section --- */
 .contact-brief {
   background-color: #e9ecef;
-  padding: 30px;
+  padding: 3rem 1.5rem;
   text-align: center;
 }
 
 .contact-brief h2 {
   font-size: 2em;
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
   color: #333;
 }
 
 .contact-brief p {
   font-size: 1.1em;
   color: #666;
-  margin-bottom: 20px;
+  margin-bottom: 1.5rem;
 }
 
-.contact-brief a {
+.contact-brief .contact-link {
   color: #007bff;
   text-decoration: none;
   font-weight: bold;
+  font-size: 1.1em;
+  transition: color 0.3s ease;
 }
 
-/* This was incorrectly nested */
-.lined-list {
-  list-style: decimal outside;     /* Use outside for cleaner alignment */
-  padding-left: 2rem;              /* Adjust left padding */
-  font-size: 1rem;
-  line-height: 1.75;
-  max-width: 1000px;
-  margin: auto;
+.contact-brief .contact-link:hover {
+    color: #0056b3;
 }
 
-.lined-list li {
-  margin-bottom: 1rem;
-  text-align: justify;
-  padding-left: 0.5rem;            /* Optional: slight indent for content */
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-section, .procedure-section {
+    padding: 3rem 1rem;
+  }
 }
