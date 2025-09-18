@@ -1,24 +1,26 @@
 <header>
   <div class="logo">
-    <img src="assets/MovingCompanyLOGO.png" alt="Moving Company Logo">
+    <a routerLink="/">
+      <img src="/assets/logo.png">
+    </a>
   </div>
   <nav>
     <ul>
-      <li>世纪搬家 / Home Page</li>
-      <li>世纪货运 / Freight</li>
+      <li><a routerLink="/">永发搬家公司 / Home Page</a></li>
+      <li>永发货运 / Freight</li>
       <li>其他业务 / Other Services</li>
       <li>搬家流程 / Moving Procedure</li>
       <li>搬家指南 / Moving Tips</li>
       <li>关于我们 / About Us</li>
-      <li><a href="/contact">联系我们 / Contact Us</a></li>
+      <li><a routerLink="/contact">联系我们 / Contact Us</a></li>
     </ul>
   </nav>
 </header>
 
 <main>
-  <app-home></app-home>
+  <router-outlet></router-outlet>
 </main>
 
 <footer>
-  <p>&copy; 2025 Moving Company</p>
+  <p>&copy; 2025 Yong Fa Moving Company/永发搬家公司</p>
 </footer>
