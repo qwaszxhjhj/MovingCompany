@@ -2,10 +2,9 @@
 <section class="hero">
   <h1>欢迎来到永发搬家公司</h1>
   <p>您值得信赖的搬家伙伴，提供专业、高效的搬家服务。</p>
-  
+
   <h1>微信/WeChat</h1>
-  <!-- Centered QR Code -->
-  <img src="/assets/wei-xin-logo.jpg" alt="WeChat QR Code" class="hero-qr-code">
+  <img src="/assets/wei-xin-qr-code.jpg" alt="WeChat QR Code" class="hero-qr-code">
   
   <a href="tel:+16462291189">
     <button>(646)-229-1189</button>
@@ -49,6 +48,32 @@
   </div>
 </section>
 
+<!-- Image Gallery Carousel Section -->
+<section class="image-gallery-section">
+  <h2 class="section-title">客户实拍 / Our Work</h2>
+  <div class="carousel-container">
+    <!-- The transform style is calculated to keep the active slide centered -->
+    <div class="carousel-wrapper" [ngStyle]="{'transform': 'translateX(calc(-' + currentIndex * 64 + '% + 18%))'}">
+      <!-- We add the 'active' class to the current slide for styling -->
+      <div class="carousel-slide" *ngFor="let image of galleryImages; let i = index" [class.active]="i === currentIndex">
+        <img [src]="image.src" [alt]="image.alt">
+      </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <button class="carousel-btn prev-btn" (click)="prevSlide()">&#10094;</button>
+    <button class="carousel-btn next-btn" (click)="nextSlide()">&#10095;</button>
+
+    <!-- Navigation Dots -->
+    <div class="carousel-dots">
+      <span *ngFor="let image of galleryImages; let i = index" 
+            class="dot" 
+            [class.active]="i === currentIndex" 
+            (click)="goToSlide(i)"></span>
+    </div>
+  </div>
+</section>
+
 <!-- Moving Procedure Section -->
 <section class="procedure-section">
   <h2 class="section-title">搬家流程</h2>
@@ -72,3 +97,4 @@
   <p>请随时联系我们！</p>
   <a href="/contact" class="contact-link">前往联系页面</a>
 </section>
+

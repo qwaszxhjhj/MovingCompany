@@ -194,3 +194,170 @@
     padding: 3rem 1rem;
   }
 }
+
+/* Hero Section Styles */
+.hero {
+  position: relative; /* Required for the overlay */
+  text-align: center;
+  padding: 6rem 2rem; /* Reduced padding to make the section shorter */
+  color: #ffffff; /* Set text color to white for readability */
+
+  /* Background Image Setup - UPDATE THIS FILENAME */
+  background-image: url('/assets/no-url.png');
+  background-size: cover; /* Ensures the image covers the entire section */
+  background-position: center center; /* Centers the image */
+  background-repeat: no-repeat;
+}
+
+/* Add a dark overlay to make text stand out */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  z-index: 1; /* Place overlay below the text content */
+}
+
+/* Make sure hero content is on top of the overlay */
+.hero > * {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #ffffff; /* Ensure heading is white */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* ADDED: Makes text readable */
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #f0f0f0; /* Slightly off-white for better contrast */
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8); /* ADDED: Makes text readable */
+}
+
+/* Style for the QR Code in the hero section */
+.hero-qr-code {
+  width: 150px;
+  height: 150px;
+  margin: 1rem auto;
+  border: 4px solid #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.hero button {
+  background-color: #007bff;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 2rem;
+}
+
+.hero button:hover {
+  background-color: #0056b3;
+}
+
+
+/* --- Image Gallery Carousel Styles --- */
+.image-gallery-section {
+  padding: 4rem 0; /* Use vertical padding only */
+  background-color: #ffffff;
+  overflow: hidden; /* Prevent horizontal scrollbars */
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  /* overflow: hidden; This is moved to the parent for better control */
+}
+
+.carousel-wrapper {
+  display: flex;
+  align-items: center; /* Vertically center slides */
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.carousel-slide {
+  flex: 0 0 60%; /* Each slide takes up 60% of the container width */
+  margin: 0 2%; /* Add space between slides */
+  transform: scale(0.8);
+  opacity: 0.5;
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.carousel-slide.active {
+  transform: scale(1); /* Active slide is full size */
+  opacity: 1; /* Active slide is fully visible */
+}
+
+.carousel-slide img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  display: block;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-btn:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.prev-btn {
+  left: 3%;
+}
+
+.next-btn {
+  right: 3%;
+}
+
+.carousel-dots {
+  position: absolute;
+  bottom: -40px; /* Position dots outside the slider for clarity */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.dot {
+  cursor: pointer;
+  height: 12px;
+  width: 12px;
+  background-color: #ccc;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active, .dot:hover {
+  background-color: #007bff;
+}
